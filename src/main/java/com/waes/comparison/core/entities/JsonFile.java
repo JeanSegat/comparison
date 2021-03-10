@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class JsonFile {
 
     @Id
-    private Integer id;
+    private Long id;
 
     @Column(name = "right_side")
     @Lob
@@ -17,11 +17,11 @@ public class JsonFile {
     @Lob
     private String encodedLeftSide;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public JsonFile setId(Integer id) {
+    public JsonFile setId(Long id) {
         this.id = id;
         return this;
     }
