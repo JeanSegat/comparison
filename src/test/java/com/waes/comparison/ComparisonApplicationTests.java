@@ -1,6 +1,8 @@
 package com.waes.comparison;
 
-import com.waes.comparison.infrastructure.repositories.JsonFileRepository;
+import com.waes.comparison.core.repositories.JsonFileCustomRepository;
+import com.waes.comparison.core.repositories.JsonFileRepository;
+import com.waes.comparison.core.usecases.JsonFileUseCases;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,4 +14,10 @@ public abstract class ComparisonApplicationTests {
 
 	@Autowired
 	protected JsonFileRepository jsonFileRepository;
+
+	@Autowired
+	protected JsonFileUseCases jsonFileUseCases;
+
+	@Autowired
+	protected JsonFileCustomRepository jsonFileCustomRepository;
 }

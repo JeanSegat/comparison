@@ -1,27 +1,15 @@
-package com.waes.comparison.core.entities;
+package com.waes.comparison.infrastructure.entrypoint.dto;
 
-import javax.persistence.*;
-
-@Entity
-@Table(name="file")
-public class JsonFile {
-
-    @Id
+public class JsonFileDTO {
     private Long id;
 
-    @Column(name = "right_side")
-    @Lob
     private String encodedRightSide;
 
-    @Column(name = "left_side")
-    @Lob
     private String encodedLeftSide;
 
-    public JsonFile(Long id) {
+    public JsonFileDTO(Long id) {
         this.id = id;
     }
-
-    public JsonFile() {}
 
     public Long getId() {
         return id;

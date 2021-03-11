@@ -2,10 +2,12 @@ package com.waes.comparison.core.usecases;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.waes.comparison.core.domain.Status;
+import org.springframework.stereotype.Service;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
+@Service
 public class JsonFileUseCasesImpl implements JsonFileUseCases {
 
     private static final ObjectMapper mapper = new ObjectMapper();

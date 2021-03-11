@@ -3,12 +3,11 @@ package com.waes.comparison.unit.core.useCases;
 import com.waes.comparison.core.domain.Status;
 import com.waes.comparison.core.usecases.JsonFileUseCases;
 import com.waes.comparison.core.usecases.JsonFileUseCasesImpl;
+import com.waes.comparison.utils.JsonFileUtils;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import java.util.Base64;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -16,9 +15,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class JsonFileCasesImplTest {
 
     private final JsonFileUseCases useCases = new JsonFileUseCasesImpl();
-    private final String file1 = "{\"name\":\"john\",\"age\":22,\"city\":\"Joinville\",\"country\":\"Brazil\"}";
-    private final String file2 = "{\"name\":\"jean\",\"age\":29,\"city\":\"Joinville\",\"country\":\"Brazil\"}";
-    private final String file3 = "{\"name\":\"Maria\",\"age\":34,\"city\":\"Eindhoven\",\"country\":\"Netherlands\"}";
     private final String differentOffset = "10 11 22";
 
     private String encodedFile1;
@@ -27,9 +23,9 @@ public class JsonFileCasesImplTest {
 
     @Before
     public void setUp(){
-        encodedFile1 = Base64.getEncoder().encodeToString(file1.getBytes());
-        encodedFile2 = Base64.getEncoder().encodeToString(file2.getBytes());
-        encodedFile3 = Base64.getEncoder().encodeToString(file3.getBytes());
+        encodedFile1 = JsonFileUtils.getEncodedFile1();
+        encodedFile2 = JsonFileUtils.getEncodedFile2();
+        encodedFile3 = JsonFileUtils.getEncodedFile3();
     }
 
     @Test

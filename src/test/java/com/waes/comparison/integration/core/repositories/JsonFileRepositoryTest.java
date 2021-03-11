@@ -1,4 +1,4 @@
-package com.waes.comparison.integration.infrastructure.repositories;
+package com.waes.comparison.integration.core.repositories;
 
 import com.waes.comparison.ComparisonApplicationTests;
 import com.waes.comparison.core.entities.JsonFile;
@@ -31,8 +31,7 @@ public class JsonFileRepositoryTest extends ComparisonApplicationTests {
 
     @Test
     public void should_store_json_file_with_right_side() {
-        JsonFile file = new JsonFile();
-        file.setId(-1l);
+        JsonFile file = new JsonFile(-1l);
         file.setEncodedRightSide(encodedFile1);
         jsonFileRepository.save(file);
 
@@ -47,8 +46,7 @@ public class JsonFileRepositoryTest extends ComparisonApplicationTests {
 
     @Test
     public void should_store_json_file_with_left_side() {
-        JsonFile file = new JsonFile();
-        file.setId(-2l);
+        JsonFile file = new JsonFile(-2l);
         file.setEncodedLeftSide(encodedFile2);
         jsonFileRepository.save(file);
 
@@ -63,8 +61,7 @@ public class JsonFileRepositoryTest extends ComparisonApplicationTests {
 
     @Test
     public void should_store_json_file_with_both_side() {
-        JsonFile file = new JsonFile();
-        file.setId(-3l);
+        JsonFile file = new JsonFile(-3l);
         file.setEncodedLeftSide(encodedFile2);
         file.setEncodedRightSide(encodedFile3);
         jsonFileRepository.save(file);
@@ -80,8 +77,7 @@ public class JsonFileRepositoryTest extends ComparisonApplicationTests {
 
     @Test
     public void should_store_json_file_with_both_side_update() {
-        JsonFile file = new JsonFile();
-        file.setId(-4l);
+        JsonFile file = new JsonFile(-4l);
         file.setEncodedLeftSide(encodedFile2);
         file = jsonFileRepository.save(file);
         assertEquals(-4, file.getId());

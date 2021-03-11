@@ -6,4 +6,5 @@ public interface JsonFileUseCases {
     Status getDiffStatus(String encodedLeftFile, String encodedRightFile);
 
     String getDifferentOffset(String encodedLeftFile, String encodedRightFile);
+
 }
