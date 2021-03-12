@@ -2,10 +2,14 @@ package com.waes.comparison.infrastructure.facade;
 
 import com.waes.comparison.core.domain.Status;
 import com.waes.comparison.core.entities.JsonFile;
+import com.waes.comparison.core.exception.FileNotFoundException;
+import com.waes.comparison.core.exception.OneFileIsEmptyException;
 import com.waes.comparison.core.repositories.JsonFileCustomRepository;
 import com.waes.comparison.core.usecases.JsonFileUseCases;
 import com.waes.comparison.infrastructure.entrypoint.dto.JsonFileDTO;
+import org.springframework.stereotype.Component;
 
+@Component
 public class JsonFileFacadeImpl implements JsonFileFacade {
 
     private final JsonFileCustomRepository jsonFileCustomRepository;
@@ -27,7 +31,7 @@ public class JsonFileFacadeImpl implements JsonFileFacade {
     }
 
     @Override
-    public String getDifferenceStatus(Long id) {
+    public String getDifferenceStatus(Long id) throws FileNotFoundException, OneFileIsEmptyException {
         JsonFile jsonFile = jsonFileCustomRepository.findById(id);
         Status status = jsonFileUseCases.getDiffStatus(jsonFile.getEncodedLeftSide(), jsonFile.getEncodedRightSide());
         String result;

@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class JsonFileCasesImplTest {
 
     private final JsonFileUseCases useCases = new JsonFileUseCasesImpl();
-    private final String differentOffset = "10 11 22";
+    private final String DIFFERENT_OFFSET = "10 11 22";
 
     private String encodedFile1;
     private String encodedFile2;
@@ -49,7 +49,7 @@ public class JsonFileCasesImplTest {
     @Test
     public void should_return_different_offsets() {
         String difference = useCases.getDifferentOffset(encodedFile1, encodedFile2);
-        assertEquals(differentOffset, difference);
+        assertEquals(DIFFERENT_OFFSET, difference);
     }
 
     @Test

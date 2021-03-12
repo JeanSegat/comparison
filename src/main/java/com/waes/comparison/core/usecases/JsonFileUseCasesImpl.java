@@ -2,6 +2,7 @@ package com.waes.comparison.core.usecases;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.waes.comparison.core.domain.Status;
+import com.waes.comparison.core.exception.OneFileIsEmptyException;
 import org.springframework.stereotype.Service;
 
 import java.nio.charset.StandardCharsets;
@@ -13,7 +14,11 @@ public class JsonFileUseCasesImpl implements JsonFileUseCases {
     private static final ObjectMapper mapper = new ObjectMapper();
 
     @Override
-    public Status getDiffStatus(final String encodedLeftFile, final String encodedRightFile) {
+    public Status getDiffStatus(final String encodedLeftFile, final String encodedRightFile) throws OneFileIsEmptyException {
+        if (encodedLeftFile == null || encodedRightFile == null) {
+            throw new OneFileIsEmptyException("One file is null.");
+        }
+
         String rightFile = getFileAsString(encodedRightFile);
         String leftFile = getFileAsString(encodedLeftFile);
 

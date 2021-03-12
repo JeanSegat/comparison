@@ -1,6 +1,6 @@
 package com.waes.comparison.integration.core.repositories;
 
-import com.waes.comparison.ComparisonApplicationTests;
+import com.waes.comparison.ComparisonApplicationTest;
 import com.waes.comparison.core.domain.Position;
 import com.waes.comparison.core.entities.JsonFile;
 import com.waes.comparison.infrastructure.entrypoint.dto.JsonFileDTO;
@@ -11,7 +11,7 @@ import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class JsonFileCustomRepositoryImpl extends ComparisonApplicationTests {
+public class JsonFileCustomRepositoryImplTest extends ComparisonApplicationTest {
 
     @Test
     public void should_create_new_data_with_left_side_file() {

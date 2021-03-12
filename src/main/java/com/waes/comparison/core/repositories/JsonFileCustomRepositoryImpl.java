@@ -1,8 +1,11 @@
 package com.waes.comparison.core.repositories;
 
 import com.waes.comparison.core.entities.JsonFile;
+import com.waes.comparison.core.exception.FileNotFoundException;
 import com.waes.comparison.infrastructure.entrypoint.dto.JsonFileDTO;
+import org.springframework.stereotype.Component;
 
+@Component
 public class JsonFileCustomRepositoryImpl implements JsonFileCustomRepository {
     private final JsonFileRepository jsonFileRepository;
 
@@ -25,8 +28,8 @@ public class JsonFileCustomRepositoryImpl implements JsonFileCustomRepository {
     }
 
     @Override
-    public JsonFile findById(final Long id) {
-        return jsonFileRepository.findById(id).orElseThrow( () -> new RuntimeException("File not found"));
+    public JsonFile findById(final Long id) throws FileNotFoundException {
+        return jsonFileRepository.findById(id).orElseThrow( () -> new FileNotFoundException("File not found"));
     }
 
     private void merge(final JsonFileDTO dto, JsonFile entity) {
