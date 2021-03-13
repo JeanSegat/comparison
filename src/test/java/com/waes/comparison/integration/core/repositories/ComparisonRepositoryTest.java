@@ -1,14 +1,14 @@
 package com.waes.comparison.integration.core.repositories;
 
 import com.waes.comparison.ComparisonApplicationTest;
-import com.waes.comparison.core.entities.JsonFile;
+import com.waes.comparison.core.entities.Comparison;
 import com.waes.comparison.utils.JsonFileUtils;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class JsonFileRepositoryTest extends ComparisonApplicationTest {
+public class ComparisonRepositoryTest extends ComparisonApplicationTest {
 
     private String encodedFile1;
     private String encodedFile2;
@@ -23,68 +23,68 @@ public class JsonFileRepositoryTest extends ComparisonApplicationTest {
 
     @Test
     public void should_store_json_file_with_right_side() {
-        JsonFile file = new JsonFile(-1l);
+        Comparison file = new Comparison(-1l);
         file.setEncodedRightSide(encodedFile1);
-        jsonFileRepository.save(file);
+        comparisonRepository.save(file);
 
-        JsonFile storedFile = jsonFileRepository.findById(-1l).get();
+        Comparison storedFile = comparisonRepository.findById(-1l).get();
 
         assertEquals(-1, storedFile.getId());
         assertNotNull(storedFile.getEncodedRightSide());
         assertNull(storedFile.getEncodedLeftSide());
 
-        jsonFileRepository.deleteById(-1l);
+        comparisonRepository.deleteById(-1l);
     }
 
     @Test
     public void should_store_json_file_with_left_side() {
-        JsonFile file = new JsonFile(-2l);
+        Comparison file = new Comparison(-2l);
         file.setEncodedLeftSide(encodedFile2);
-        jsonFileRepository.save(file);
+        comparisonRepository.save(file);
 
-        JsonFile storedFile = jsonFileRepository.findById(-2l).get();
+        Comparison storedFile = comparisonRepository.findById(-2l).get();
 
         assertEquals(-2, storedFile.getId());
         assertNotNull(storedFile.getEncodedLeftSide());
         assertNull(storedFile.getEncodedRightSide());
 
-        jsonFileRepository.deleteById(-2l);
+        comparisonRepository.deleteById(-2l);
     }
 
     @Test
     public void should_store_json_file_with_both_side() {
-        JsonFile file = new JsonFile(-3l);
+        Comparison file = new Comparison(-3l);
         file.setEncodedLeftSide(encodedFile2);
         file.setEncodedRightSide(encodedFile3);
-        jsonFileRepository.save(file);
+        comparisonRepository.save(file);
 
-        JsonFile storedFile = jsonFileRepository.findById(-3l).get();
+        Comparison storedFile = comparisonRepository.findById(-3l).get();
 
         assertEquals(-3, storedFile.getId());
         assertNotNull(storedFile.getEncodedLeftSide());
         assertNotNull(storedFile.getEncodedRightSide());
 
-        jsonFileRepository.deleteById(-3l);
+        comparisonRepository.deleteById(-3l);
     }
 
     @Test
     public void should_store_json_file_with_both_side_update() {
-        JsonFile file = new JsonFile(-4l);
+        Comparison file = new Comparison(-4l);
         file.setEncodedLeftSide(encodedFile2);
-        file = jsonFileRepository.save(file);
+        file = comparisonRepository.save(file);
         assertEquals(-4, file.getId());
         assertNotNull(file.getEncodedLeftSide());
         assertNull(file.getEncodedRightSide());
 
         file.setEncodedRightSide(encodedFile3);
-        jsonFileRepository.save(file);
+        comparisonRepository.save(file);
 
-        JsonFile storedFile = jsonFileRepository.findById(-4l).get();
+        Comparison storedFile = comparisonRepository.findById(-4l).get();
 
         assertEquals(-4, storedFile.getId());
         assertNotNull(storedFile.getEncodedLeftSide());
         assertNotNull(storedFile.getEncodedRightSide());
 
-        jsonFileRepository.deleteById(-4l);
+        comparisonRepository.deleteById(-4l);
     }
 }

@@ -1,10 +1,10 @@
 package com.waes.comparison.infrastructure.entrypoint.dto;
 
-import com.sun.istack.NotNull;
+import javax.validation.constraints.NotEmpty;
 
 public class JsonFileRequestDTO {
 
-    @NotNull
+    @NotEmpty(message = "Please send a file")
     private String encodedJsonFile;
 
     public String getEncodedJsonFile() {

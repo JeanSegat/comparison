@@ -2,9 +2,9 @@ package com.waes.comparison;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.waes.comparison.core.repositories.JsonFileCustomRepository;
-import com.waes.comparison.core.repositories.JsonFileRepository;
-import com.waes.comparison.core.usecases.JsonFileUseCases;
+import com.waes.comparison.core.repositories.ComparisonCustomRepository;
+import com.waes.comparison.core.repositories.ComparisonRepository;
+import com.waes.comparison.core.usecases.ComparisonUseCases;
 import com.waes.comparison.infrastructure.facade.JsonFileFacade;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,13 +19,13 @@ import org.springframework.test.web.servlet.MockMvc;
 public abstract class ComparisonApplicationTest {
 
 	@Autowired
-	protected JsonFileRepository jsonFileRepository;
+	protected ComparisonRepository comparisonRepository;
 
 	@Autowired
-	protected JsonFileUseCases jsonFileUseCases;
+	protected ComparisonUseCases comparisonUseCases;
 
 	@Autowired
-	protected JsonFileCustomRepository jsonFileCustomRepository;
+	protected ComparisonCustomRepository comparisonCustomRepository;
 
 	@Autowired
 	protected JsonFileFacade jsonFileFacade;

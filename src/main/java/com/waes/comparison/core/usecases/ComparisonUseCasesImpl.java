@@ -9,10 +9,17 @@ import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
 @Service
-public class JsonFileUseCasesImpl implements JsonFileUseCases {
+public class ComparisonUseCasesImpl implements ComparisonUseCases {
 
     private static final ObjectMapper mapper = new ObjectMapper();
 
+    /**
+     * Comparison of two json files
+     * @param encodedLeftFile Left side file to compare
+     * @param encodedRightFile Right side file to compare
+     * @return The status of de comparison: Same file, Different size or Same size bur with different content.
+     * @throws OneFileIsEmptyException
+     */
     @Override
     public Status getDiffStatus(final String encodedLeftFile, final String encodedRightFile) throws OneFileIsEmptyException {
         if (encodedLeftFile == null || encodedRightFile == null) {
@@ -32,6 +39,12 @@ public class JsonFileUseCasesImpl implements JsonFileUseCases {
 
     }
 
+    /**
+     * Get the different offset between two json files
+     * @param encodedLeftFile Left side file
+     * @param encodedRightFile Right side file
+     * @return All the position are different
+     */
     @Override
     public String getDifferentOffset(final String encodedLeftFile, final String encodedRightFile) {
         byte[] rightFile = getFileAsString(encodedRightFile).getBytes(StandardCharsets.UTF_8);

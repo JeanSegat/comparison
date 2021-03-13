@@ -4,24 +4,34 @@ import com.waes.comparison.core.exception.FileNotFoundException;
 import com.waes.comparison.core.exception.OneFileIsEmptyException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 @ControllerAdvice
-public class ApplicationExceptionHandler extends ResponseEntityExceptionHandler {
+public class ApplicationExceptionHandler {
 
     @ExceptionHandler({FileNotFoundException.class})
     public ResponseEntity handleFileNotFoundException(Exception exception) {
-        return handleExceptionResponse(exception, HttpStatus.NOT_FOUND);
+        return handleExceptionResponse(exception.getMessage(), HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler({OneFileIsEmptyException.class})
     public ResponseEntity handleOneFileIsEmptyException(Exception exception) {
-        return handleExceptionResponse(exception, HttpStatus.NOT_ACCEPTABLE);
+        return handleExceptionResponse(exception.getMessage(), HttpStatus.NOT_ACCEPTABLE);
     }
 
-    private ResponseEntity<String> handleExceptionResponse(Exception exception, HttpStatus status) {
-        return new ResponseEntity<>(exception.getMessage(),status);
+    @ExceptionHandler({MethodArgumentNotValidException.class})
+    public ResponseEntity handleArgumentNotValidException(MethodArgumentNotValidException exception) {
+        StringBuilder result = new StringBuilder();
+        exception.getBindingResult().getAllErrors().forEach((error) -> {
+             result.append(error.getDefaultMessage());
+             result.append(". ");
+        });
+        return handleExceptionResponse(result.toString(), HttpStatus.BAD_REQUEST);
+    }
+
+    private ResponseEntity<String> handleExceptionResponse(String message, HttpStatus status) {
+        return new ResponseEntity<>(message,status);
     }
 }

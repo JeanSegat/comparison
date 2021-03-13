@@ -1,8 +1,8 @@
 package com.waes.comparison.unit.core.useCases;
 
 import com.waes.comparison.core.domain.Status;
-import com.waes.comparison.core.usecases.JsonFileUseCases;
-import com.waes.comparison.core.usecases.JsonFileUseCasesImpl;
+import com.waes.comparison.core.usecases.ComparisonUseCases;
+import com.waes.comparison.core.usecases.ComparisonUseCasesImpl;
 import com.waes.comparison.utils.JsonFileUtils;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,9 +12,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @RunWith(SpringRunner.class)
-public class JsonFileCasesImplTest {
+public class ComparisonCasesImplTest {
 
-    private final JsonFileUseCases useCases = new JsonFileUseCasesImpl();
+    private final ComparisonUseCases useCases = new ComparisonUseCasesImpl();
     private final String DIFFERENT_OFFSET = "10 11 22";
 
     private String encodedFile1;

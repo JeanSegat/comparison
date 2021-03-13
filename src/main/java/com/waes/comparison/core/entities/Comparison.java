@@ -3,8 +3,8 @@ package com.waes.comparison.core.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name="file")
-public class JsonFile {
+@Table(name="comparison")
+public class Comparison {
 
     @Id
     private Long id;
@@ -17,11 +17,11 @@ public class JsonFile {
     @Lob
     private String encodedLeftSide;
 
-    public JsonFile(Long id) {
+    public Comparison(Long id) {
         this.id = id;
     }
 
-    public JsonFile() {}
+    public Comparison() {}
 
     public Long getId() {
         return id;

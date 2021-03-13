@@ -2,7 +2,7 @@ package com.waes.comparison.integration.infrastructure.facade;
 
 import com.waes.comparison.ComparisonApplicationTest;
 import com.waes.comparison.core.domain.Position;
-import com.waes.comparison.core.entities.JsonFile;
+import com.waes.comparison.core.entities.Comparison;
 import com.waes.comparison.infrastructure.entrypoint.dto.JsonFileDTO;
 import com.waes.comparison.infrastructure.entrypoint.dto.JsonFileRequestDTO;
 import com.waes.comparison.infrastructure.mapper.JsonFileMapper;
@@ -12,7 +12,7 @@ import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class JsonFileFacadeImplTest extends ComparisonApplicationTest {
+public class ComparisonFacadeImplTest extends ComparisonApplicationTest {
 
     private static final String SAME_FILE = "Same File";
     private static final String DIFFERENT_SIZE = "Different Size";
@@ -39,12 +39,12 @@ public class JsonFileFacadeImplTest extends ComparisonApplicationTest {
         JsonFileDTO dto = JsonFileMapper.fillJsonFileDTO(-9l, requestDTO1, Position.LEFT);
         jsonFileFacade.createOrUpdate(dto);
 
-        JsonFile storedFile = jsonFileRepository.findById(-9l).get();
+        Comparison storedFile = comparisonRepository.findById(-9l).get();
         assertEquals(-9l, storedFile.getId());
         assertNull(storedFile.getEncodedRightSide());
         assertNotNull(storedFile.getEncodedLeftSide());
 
-        jsonFileRepository.deleteById(-9l);
+        comparisonRepository.deleteById(-9l);
     }
 
     @Test
@@ -52,12 +52,12 @@ public class JsonFileFacadeImplTest extends ComparisonApplicationTest {
         JsonFileDTO dto = JsonFileMapper.fillJsonFileDTO(-10l, requestDTO2, Position.RIGHT);
         jsonFileFacade.createOrUpdate(dto);
 
-        JsonFile storedFile = jsonFileRepository.findById(-10l).get();
+        Comparison storedFile = comparisonRepository.findById(-10l).get();
         assertEquals(-10l, storedFile.getId());
         assertNotNull(storedFile.getEncodedRightSide());
         assertNull(storedFile.getEncodedLeftSide());
 
-        jsonFileRepository.deleteById(-10l);
+        comparisonRepository.deleteById(-10l);
     }
 
     @Test
@@ -68,12 +68,12 @@ public class JsonFileFacadeImplTest extends ComparisonApplicationTest {
         JsonFileDTO leftDTO = JsonFileMapper.fillJsonFileDTO(-11l, requestDTO2, Position.LEFT);
         jsonFileFacade.createOrUpdate(leftDTO);
 
-        JsonFile storedFile = jsonFileRepository.findById(-11l).get();
+        Comparison storedFile = comparisonRepository.findById(-11l).get();
         assertEquals(-11l, storedFile.getId());
         assertNotNull(storedFile.getEncodedRightSide());
         assertNotNull(storedFile.getEncodedLeftSide());
 
-        jsonFileRepository.deleteById(-11l);
+        comparisonRepository.deleteById(-11l);
     }
 
     @Test
@@ -87,7 +87,7 @@ public class JsonFileFacadeImplTest extends ComparisonApplicationTest {
         String result = jsonFileFacade.getDifferenceStatus(-12l);
 
         assertEquals(SAME_FILE, result);
-        jsonFileRepository.deleteById(-12l);
+        comparisonRepository.deleteById(-12l);
     }
 
     @Test
@@ -101,7 +101,7 @@ public class JsonFileFacadeImplTest extends ComparisonApplicationTest {
         String result = jsonFileFacade.getDifferenceStatus(-13l);
 
         assertEquals(DIFFERENT_SIZE, result);
-        jsonFileRepository.deleteById(-13l);
+        comparisonRepository.deleteById(-13l);
     }
 
     @Test
@@ -115,7 +115,7 @@ public class JsonFileFacadeImplTest extends ComparisonApplicationTest {
         String result = jsonFileFacade.getDifferenceStatus(-14l);
 
         assertEquals(DIFFERENT_OFFSET, result);
-        jsonFileRepository.deleteById(-14l);
+        comparisonRepository.deleteById(-14l);
     }
 
 
