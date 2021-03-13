@@ -16,6 +16,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 
 @RestController
 @RequestMapping("v1/diff")
@@ -34,7 +35,7 @@ public class JsonFileController {
             @ApiResponse(code = 201, message = "Left file created"),
             @ApiResponse(code = 400, message = "Please send a file")
     })
-    public void createLeftFile(@PathVariable Long id, @RequestBody @Valid JsonFileRequestDTO requestDTO) throws MethodArgumentNotValidException {
+    public void createLeftFile(@PathVariable @NotBlank Long id, @RequestBody @Valid JsonFileRequestDTO requestDTO) throws MethodArgumentNotValidException {
         JsonFileDTO dto = JsonFileMapper.fillJsonFileDTO(id, requestDTO, Position.LEFT);
         jsonFileFacade.createOrUpdate(dto);
     }
@@ -46,7 +47,7 @@ public class JsonFileController {
             @ApiResponse(code = 201, message = "Right file created"),
             @ApiResponse(code = 400, message = "Please send a file")
     })
-    public void createRightFile(@PathVariable Long id, @RequestBody @Valid JsonFileRequestDTO requestDTO) {
+    public void createRightFile(@PathVariable @NotBlank Long id, @RequestBody @Valid JsonFileRequestDTO requestDTO) {
         JsonFileDTO dto = JsonFileMapper.fillJsonFileDTO(id, requestDTO, Position.RIGHT);
         jsonFileFacade.createOrUpdate(dto);
     }

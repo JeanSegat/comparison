@@ -2,6 +2,7 @@ package com.waes.comparison.core.handler;
 
 import com.waes.comparison.core.exception.ComparisonNotFoundException;
 import com.waes.comparison.core.exception.OneFileIsEmptyException;
+import com.waes.comparison.core.handler.dto.ResponseErrorDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -26,12 +27,11 @@ public class ApplicationExceptionHandler {
         StringBuilder result = new StringBuilder();
         exception.getBindingResult().getAllErrors().forEach((error) -> {
              result.append(error.getDefaultMessage());
-             result.append(". ");
         });
         return handleExceptionResponse(result.toString(), HttpStatus.BAD_REQUEST);
     }
 
-    private ResponseEntity<String> handleExceptionResponse(String message, HttpStatus status) {
-        return new ResponseEntity<>(message,status);
+    private ResponseEntity<ResponseErrorDTO> handleExceptionResponse(String message, HttpStatus status) {
+        return new ResponseEntity<ResponseErrorDTO>(new ResponseErrorDTO(message),status);
     }
 }
