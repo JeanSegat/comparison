@@ -1,0 +1,492 @@
+{
+	"id": "32ecf032-07c4-a01f-8a29-73f7ccb57104",
+	"name": "Comparison",
+	"description": "Testing the endpoint of comparison project",
+	"order": [],
+	"folders": [
+		{
+			"name": "ComparisonNotFound",
+			"description": "Comparison Not Found",
+			"collectionId": "32ecf032-07c4-a01f-8a29-73f7ccb57104",
+			"order": [
+				"bafcbe25-3684-67f3-270c-ab80520a8560"
+			],
+			"owner": "1784547",
+			"folders_order": [],
+			"id": "79052d9f-8fa9-1c34-fe85-c617b98efecc"
+		},
+		{
+			"name": "DifferentOffset",
+			"description": "",
+			"collectionId": "32ecf032-07c4-a01f-8a29-73f7ccb57104",
+			"order": [
+				"c543e6f0-4753-74a0-dbdc-5d819d5ebc37",
+				"14179c01-8380-62a9-9c0c-a9346de3b1eb",
+				"25784ba3-59f7-31c6-7c77-c45245f80a0d"
+			],
+			"owner": "1784547",
+			"folders_order": [],
+			"id": "47dfc88b-51d9-d51e-eb47-e0ac22e9bd22"
+		},
+		{
+			"name": "DifferentSize",
+			"description": "",
+			"collectionId": "32ecf032-07c4-a01f-8a29-73f7ccb57104",
+			"order": [
+				"0cb90b9e-2553-0b45-fac1-5c97b081c1ca",
+				"bcff35ed-319d-9122-3b59-e7c98376d801",
+				"42dbb752-a717-9fa4-266c-e5f22c06161c"
+			],
+			"owner": "1784547",
+			"folders_order": [],
+			"id": "602346ec-cb2f-36af-57c8-91517e9b9aa2"
+		},
+		{
+			"name": "FileBlank",
+			"description": "",
+			"collectionId": "32ecf032-07c4-a01f-8a29-73f7ccb57104",
+			"order": [
+				"0fdfdd19-d3ae-1f78-9580-be51f1d274de",
+				"473c1566-123a-a806-9ba3-60a914d704cc"
+			],
+			"owner": "1784547",
+			"folders_order": [],
+			"id": "d214c583-3c74-c363-3762-7b2e57cc00af"
+		},
+		{
+			"name": "OneFileNull",
+			"description": "One file null in comparison",
+			"collectionId": "32ecf032-07c4-a01f-8a29-73f7ccb57104",
+			"order": [
+				"8518416a-c43a-7800-e6dc-cf6bf22ba522",
+				"a2ed88ac-2a54-7d3f-ebe8-0bb55c797ad7"
+			],
+			"owner": "1784547",
+			"folders_order": [],
+			"id": "479076ec-6ac6-2262-8943-06f0daef48fa"
+		},
+		{
+			"name": "SameFile",
+			"description": "",
+			"collectionId": "32ecf032-07c4-a01f-8a29-73f7ccb57104",
+			"order": [
+				"1c584de5-da65-0e14-fd6a-0416b3862f82",
+				"edc1653c-2328-2868-8ced-37dc558433ad",
+				"7f3f9567-de8c-c60c-9600-40ebb6d9945f"
+			],
+			"owner": "1784547",
+			"folders_order": [],
+			"id": "27cda892-71bf-f6d0-f27e-087fce4df5fc"
+		}
+	],
+	"folders_order": [
+		"27cda892-71bf-f6d0-f27e-087fce4df5fc",
+		"602346ec-cb2f-36af-57c8-91517e9b9aa2",
+		"47dfc88b-51d9-d51e-eb47-e0ac22e9bd22",
+		"d214c583-3c74-c363-3762-7b2e57cc00af",
+		"79052d9f-8fa9-1c34-fe85-c617b98efecc",
+		"479076ec-6ac6-2262-8943-06f0daef48fa"
+	],
+	"timestamp": 1615636113244,
+	"owner": "1784547",
+	"public": false,
+	"requests": [
+		{
+			"id": "0cb90b9e-2553-0b45-fac1-5c97b081c1ca",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/v1/diff/1001/left",
+			"folder": "602346ec-cb2f-36af-57c8-91517e9b9aa2",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1615637535832,
+			"name": "1 - Left Side File",
+			"description": "Create left side json file",
+			"collectionId": "32ecf032-07c4-a01f-8a29-73f7ccb57104",
+			"responses": [],
+			"rawModeData": "{\n\t\"encodedJsonFile\": \"eyJuYW1lIjoiam9obiIsImFnZSI6MjIsImNpdHkiOiJKb2ludmlsbGUiLCJjb3VudHJ5IjoiQnJhemlsIn0=\"\n}"
+		},
+		{
+			"id": "0fdfdd19-d3ae-1f78-9580-be51f1d274de",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/v1/diff/1003/left",
+			"folder": "d214c583-3c74-c363-3762-7b2e57cc00af",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1615637670298,
+			"name": "1 - Left Side File",
+			"description": "Create left side json file",
+			"collectionId": "32ecf032-07c4-a01f-8a29-73f7ccb57104",
+			"responses": [],
+			"rawModeData": "{\n\t\"encodedJsonFile\": \"\"\n}"
+		},
+		{
+			"id": "14179c01-8380-62a9-9c0c-a9346de3b1eb",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/v1/diff/1002/right",
+			"folder": "47dfc88b-51d9-d51e-eb47-e0ac22e9bd22",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1615637649526,
+			"name": "2 - Right Side File",
+			"description": "Create right side json file",
+			"collectionId": "32ecf032-07c4-a01f-8a29-73f7ccb57104",
+			"responses": [],
+			"rawModeData": "{\n\t\"encodedJsonFile\": \"eyJuYW1lIjoiamVhbiIsImFnZSI6MjksImNpdHkiOiJKb2ludmlsbGUiLCJjb3VudHJ5IjoiQnJhemlsIn0=\"\n}"
+		},
+		{
+			"id": "1c584de5-da65-0e14-fd6a-0416b3862f82",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/v1/diff/1000/left",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "32ecf032-07c4-a01f-8a29-73f7ccb57104",
+			"data": [],
+			"dataMode": "raw",
+			"name": "1 - Left Side File",
+			"description": "Create left side json file",
+			"descriptionFormat": "html",
+			"time": 1615637302837,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "27cda892-71bf-f6d0-f27e-087fce4df5fc",
+			"rawModeData": "{\n\t\"encodedJsonFile\": \"eyJuYW1lIjoiam9obiIsImFnZSI6MjIsImNpdHkiOiJKb2ludmlsbGUiLCJjb3VudHJ5IjoiQnJhemlsIn0=\"\n}"
+		},
+		{
+			"id": "25784ba3-59f7-31c6-7c77-c45245f80a0d",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/v1/diff/1002",
+			"folder": "47dfc88b-51d9-d51e-eb47-e0ac22e9bd22",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1615637644961,
+			"name": "3 - Comparison",
+			"description": "Comparison of Two Json File",
+			"collectionId": "32ecf032-07c4-a01f-8a29-73f7ccb57104",
+			"responses": []
+		},
+		{
+			"id": "42dbb752-a717-9fa4-266c-e5f22c06161c",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/v1/diff/1001",
+			"folder": "602346ec-cb2f-36af-57c8-91517e9b9aa2",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1615637535069,
+			"name": "3 - Comparison",
+			"description": "Comparison of Two Json File",
+			"collectionId": "32ecf032-07c4-a01f-8a29-73f7ccb57104",
+			"responses": []
+		},
+		{
+			"id": "473c1566-123a-a806-9ba3-60a914d704cc",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/v1/diff/1003/right",
+			"folder": "d214c583-3c74-c363-3762-7b2e57cc00af",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1615637676295,
+			"name": "2 - Right Side File",
+			"description": "Create right side json file",
+			"collectionId": "32ecf032-07c4-a01f-8a29-73f7ccb57104",
+			"responses": [],
+			"rawModeData": "{\n\t\"encodedJsonFile\": \"\"\n}"
+		},
+		{
+			"id": "7f3f9567-de8c-c60c-9600-40ebb6d9945f",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/v1/diff/1000",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "32ecf032-07c4-a01f-8a29-73f7ccb57104",
+			"data": null,
+			"dataMode": "params",
+			"name": "3 - Comparison",
+			"description": "Comparison of Two Json File",
+			"descriptionFormat": "html",
+			"time": 1615637353374,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "27cda892-71bf-f6d0-f27e-087fce4df5fc"
+		},
+		{
+			"id": "8518416a-c43a-7800-e6dc-cf6bf22ba522",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/v1/diff/1004/left",
+			"folder": "479076ec-6ac6-2262-8943-06f0daef48fa",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1615637920267,
+			"name": "1 - Left Side File",
+			"description": "Create left side json file",
+			"collectionId": "32ecf032-07c4-a01f-8a29-73f7ccb57104",
+			"responses": [],
+			"rawModeData": "{\n\t\"encodedJsonFile\": \"eyJuYW1lIjoiam9obiIsImFnZSI6MjIsImNpdHkiOiJKb2ludmlsbGUiLCJjb3VudHJ5IjoiQnJhemlsIn0=\"\n}"
+		},
+		{
+			"id": "a2ed88ac-2a54-7d3f-ebe8-0bb55c797ad7",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/v1/diff/1004",
+			"folder": "479076ec-6ac6-2262-8943-06f0daef48fa",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1615637919431,
+			"name": "3 - Comparison",
+			"description": "Comparison of Two Json File",
+			"collectionId": "32ecf032-07c4-a01f-8a29-73f7ccb57104",
+			"responses": []
+		},
+		{
+			"id": "bafcbe25-3684-67f3-270c-ab80520a8560",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/v1/diff/-99",
+			"folder": "47dfc88b-51d9-d51e-eb47-e0ac22e9bd22",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1615637798512,
+			"name": "3 - ComparisonNotFound",
+			"description": "Comparison not found\n",
+			"collectionId": "32ecf032-07c4-a01f-8a29-73f7ccb57104",
+			"responses": []
+		},
+		{
+			"id": "bcff35ed-319d-9122-3b59-e7c98376d801",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/v1/diff/1001/right",
+			"folder": "602346ec-cb2f-36af-57c8-91517e9b9aa2",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1615637536663,
+			"name": "2 - Right Side File",
+			"description": "Create right side json file",
+			"collectionId": "32ecf032-07c4-a01f-8a29-73f7ccb57104",
+			"responses": [],
+			"rawModeData": "{\n\t\"encodedJsonFile\": \"eyJuYW1lIjoiTWFyaWEiLCJhZ2UiOjM0LCJjaXR5IjoiRWluZGhvdmVuIiwiY291bnRyeSI6Ik5ldGhlcmxhbmRzIn0=\"\n}"
+		},
+		{
+			"id": "c543e6f0-4753-74a0-dbdc-5d819d5ebc37",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/v1/diff/1002/left",
+			"folder": "47dfc88b-51d9-d51e-eb47-e0ac22e9bd22",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1615637661866,
+			"name": "1 - Left Side File",
+			"description": "Create left side json file",
+			"collectionId": "32ecf032-07c4-a01f-8a29-73f7ccb57104",
+			"responses": [],
+			"rawModeData": "{\n\t\"encodedJsonFile\": \"eyJuYW1lIjoiam9obiIsImFnZSI6MjIsImNpdHkiOiJKb2ludmlsbGUiLCJjb3VudHJ5IjoiQnJhemlsIn0=\"\n}"
+		},
+		{
+			"id": "edc1653c-2328-2868-8ced-37dc558433ad",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/v1/diff/1000/right",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "32ecf032-07c4-a01f-8a29-73f7ccb57104",
+			"data": [],
+			"dataMode": "raw",
+			"name": "2 - Right Side File ",
+			"description": "Create right side json file",
+			"descriptionFormat": "html",
+			"time": 1615637328617,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "27cda892-71bf-f6d0-f27e-087fce4df5fc",
+			"rawModeData": "{\n\t\"encodedJsonFile\": \"eyJuYW1lIjoiam9obiIsImFnZSI6MjIsImNpdHkiOiJKb2ludmlsbGUiLCJjb3VudHJ5IjoiQnJhemlsIn0=\"\n}"
+		}
+	]
+}

@@ -32,3 +32,39 @@ communicated
 
 ##Nice to haves
 * Suggestions for improvement
+
+
+#Running the project
+
+Clone the repository from GutHub: 
+
+```
+ https://github.com/JeanSegat/comparison
+```
+
+After cloning run the following command: 
+* You have to have the Maven Spring Boot plugin.
+```
+ mvn spring-boot:run
+```
+
+the project, it is necessary to have the Maven Spring Boot plugin
+
+#Testing the project
+
+Inside of project structure, there is a Postman collection. You can import it on Postman app and have fun.
+
+Other way to test the project is via Swagger-UI. For it, on Browser access the following URL:
+```
+http://localhost:8080/swagger-ui.html
+```
+
+Do not forget to run the server before testing. 
+
+#Improvements
+
+* Refactoring the MVP developing to be more generic and accept more kind of files.
+* Create a connection to real database and keep the memory database just for test.
+* As the project is based on clean architecture, change the packages structure to modules.
+* To be scalable should implement some orchestration
+* Create a CI/CD
