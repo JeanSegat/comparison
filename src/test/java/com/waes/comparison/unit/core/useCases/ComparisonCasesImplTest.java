@@ -15,7 +15,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class ComparisonCasesImplTest {
 
     private final ComparisonUseCases useCases = new ComparisonUseCasesImpl();
-    private final String DIFFERENT_OFFSET = "10 11 22";
+    private final String POSITION_OF_DIFFERENCE = "Position of difference:";
+    private final String DIFFERENT_OFFSET = " 10 11 22";
 
     private String encodedFile1;
     private String encodedFile2;
@@ -49,12 +50,12 @@ public class ComparisonCasesImplTest {
     @Test
     public void should_return_different_offsets() {
         String difference = useCases.getDifferentOffset(encodedFile1, encodedFile2);
-        assertEquals(DIFFERENT_OFFSET, difference);
+        assertEquals(POSITION_OF_DIFFERENCE + DIFFERENT_OFFSET, difference);
     }
 
     @Test
     public void should_return_with_no_differences() {
         String difference = useCases.getDifferentOffset(encodedFile1, encodedFile1);
-        assertEquals("",difference);
+        assertEquals(POSITION_OF_DIFFERENCE,difference);
     }
 }

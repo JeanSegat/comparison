@@ -2,7 +2,7 @@ package com.waes.comparison.infrastructure.facade;
 
 import com.waes.comparison.core.domain.Status;
 import com.waes.comparison.core.entities.Comparison;
-import com.waes.comparison.core.exception.FileNotFoundException;
+import com.waes.comparison.core.exception.ComparisonNotFoundException;
 import com.waes.comparison.core.exception.OneFileIsEmptyException;
 import com.waes.comparison.core.repositories.ComparisonCustomRepository;
 import com.waes.comparison.core.usecases.ComparisonUseCases;
@@ -31,7 +31,7 @@ public class JsonFileFacadeImpl implements JsonFileFacade {
     }
 
     @Override
-    public String getDifferenceStatus(Long id) throws FileNotFoundException, OneFileIsEmptyException {
+    public String getDifferenceStatus(Long id) throws ComparisonNotFoundException, OneFileIsEmptyException {
         Comparison comparison = comparisonCustomRepository.findById(id);
         Status status = comparisonUseCases.getDiffStatus(comparison.getEncodedLeftSide(), comparison.getEncodedRightSide());
         String result;

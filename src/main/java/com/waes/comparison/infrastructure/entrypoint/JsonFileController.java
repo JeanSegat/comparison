@@ -1,7 +1,7 @@
 package com.waes.comparison.infrastructure.entrypoint;
 
 import com.waes.comparison.core.domain.Position;
-import com.waes.comparison.core.exception.FileNotFoundException;
+import com.waes.comparison.core.exception.ComparisonNotFoundException;
 import com.waes.comparison.core.exception.OneFileIsEmptyException;
 import com.waes.comparison.infrastructure.entrypoint.dto.JsonFileDTO;
 import com.waes.comparison.infrastructure.entrypoint.dto.JsonFileRequestDTO;
@@ -59,7 +59,7 @@ public class JsonFileController {
             @ApiResponse(code = 404, message = "File not found"),
             @ApiResponse(code = 406, message = "One file is null"),
     })
-    public JsonFileResponseDTO getDifferenceStatus(@PathVariable Long id) throws FileNotFoundException, OneFileIsEmptyException {
+    public JsonFileResponseDTO getDifferenceStatus(@PathVariable Long id) throws ComparisonNotFoundException, OneFileIsEmptyException {
         return JsonFileMapper.fillJsonFileResponse(jsonFileFacade.getDifferenceStatus(id));
     }
 }

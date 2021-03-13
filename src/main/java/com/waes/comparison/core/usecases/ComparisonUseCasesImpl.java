@@ -50,6 +50,7 @@ public class ComparisonUseCasesImpl implements ComparisonUseCases {
         byte[] rightFile = getFileAsString(encodedRightFile).getBytes(StandardCharsets.UTF_8);
         byte[] leftFile = getFileAsString(encodedLeftFile).getBytes(StandardCharsets.UTF_8);
         StringBuilder result = new StringBuilder();
+        result.append("Position of difference: ");
 
         for (int i=0; i < leftFile.length; i++) {
             if(leftFile[i] != rightFile[i]) {

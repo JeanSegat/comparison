@@ -1,7 +1,7 @@
 package com.waes.comparison.core.repositories;
 
 import com.waes.comparison.core.entities.Comparison;
-import com.waes.comparison.core.exception.FileNotFoundException;
+import com.waes.comparison.core.exception.ComparisonNotFoundException;
 import com.waes.comparison.infrastructure.entrypoint.dto.JsonFileDTO;
 import org.springframework.stereotype.Component;
 
@@ -35,11 +35,11 @@ public class ComparisonCustomRepositoryImpl implements ComparisonCustomRepositor
      * Find a
      * @param id
      * @return
-     * @throws FileNotFoundException
+     * @throws ComparisonNotFoundException
      */
     @Override
-    public Comparison findById(final Long id) throws FileNotFoundException {
-        return comparisonRepository.findById(id).orElseThrow( () -> new FileNotFoundException("File not found"));
+    public Comparison findById(final Long id) throws ComparisonNotFoundException {
+        return comparisonRepository.findById(id).orElseThrow( () -> new ComparisonNotFoundException("Comparison not found"));
     }
 
     private void merge(final JsonFileDTO dto, Comparison entity) {

@@ -2,7 +2,7 @@ package com.waes.comparison.integration.infrastructure.entrypoint;
 
 import com.waes.comparison.ComparisonApplicationTest;
 import com.waes.comparison.core.entities.Comparison;
-import com.waes.comparison.core.exception.FileNotFoundException;
+import com.waes.comparison.core.exception.ComparisonNotFoundException;
 import com.waes.comparison.core.exception.OneFileIsEmptyException;
 import com.waes.comparison.infrastructure.entrypoint.dto.JsonFileRequestDTO;
 import com.waes.comparison.utils.JsonFileUtils;
@@ -17,14 +17,14 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-public class ComparisonControllerTest extends ComparisonApplicationTest {
+public class JsonFileControllerTest extends ComparisonApplicationTest {
 
     private static String JSON_FILE_BASE_PATH = "/v1/diff";
     private static String JSON_LEFT_FILE_PATH = "/{id}/left";
     private static String JSON_RIGHT_FILE_PATH = "/{id}/right";
     private static final String SAME_FILE = "{\"response\":\"Same File\"}";
     private static final String DIFFERENT_SIZE = "{\"response\":\"Different Size\"}";
-    private final String DIFFERENT_OFFSET = "{\"response\":\"10 11 22\"}";
+    private final String DIFFERENT_OFFSET = "{\"response\":\"Position of difference: 10 11 22\"}";
 
     private JsonFileRequestDTO requestDTO1;
     private String encodedFile1;
@@ -98,11 +98,11 @@ public class ComparisonControllerTest extends ComparisonApplicationTest {
     }
 
     @Test
-    public void should_return_file_not_found_exception() throws Exception {
+    public void should_return_comparison_not_found_exception() throws Exception {
        mvc.perform(get(JSON_FILE_BASE_PATH + "/-100")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound())
-                .andExpect(result -> assertTrue(result.getResolvedException() instanceof FileNotFoundException));
+                .andExpect(result -> assertTrue(result.getResolvedException() instanceof ComparisonNotFoundException));
     }
 
     @Test

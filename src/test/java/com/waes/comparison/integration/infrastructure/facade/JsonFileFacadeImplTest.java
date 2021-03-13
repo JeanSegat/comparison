@@ -12,11 +12,11 @@ import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ComparisonFacadeImplTest extends ComparisonApplicationTest {
+public class JsonFileFacadeImplTest extends ComparisonApplicationTest {
 
     private static final String SAME_FILE = "Same File";
     private static final String DIFFERENT_SIZE = "Different Size";
-    private final String DIFFERENT_OFFSET = "10 11 22";
+    private final String DIFFERENT_OFFSET = "Position of difference: 10 11 22";
 
     private JsonFileRequestDTO requestDTO1;
     private JsonFileRequestDTO requestDTO2;

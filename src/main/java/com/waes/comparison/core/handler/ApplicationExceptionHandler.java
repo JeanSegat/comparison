@@ -1,6 +1,6 @@
 package com.waes.comparison.core.handler;
 
-import com.waes.comparison.core.exception.FileNotFoundException;
+import com.waes.comparison.core.exception.ComparisonNotFoundException;
 import com.waes.comparison.core.exception.OneFileIsEmptyException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class ApplicationExceptionHandler {
 
-    @ExceptionHandler({FileNotFoundException.class})
+    @ExceptionHandler({ComparisonNotFoundException.class})
     public ResponseEntity handleFileNotFoundException(Exception exception) {
         return handleExceptionResponse(exception.getMessage(), HttpStatus.NOT_FOUND);
     }
